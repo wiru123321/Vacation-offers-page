@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import OfferCard from './offerCard';
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
+import { OffersContainer, GridContainer } from './styles';
 
 export type OffersTypes = {
 	id: number
@@ -30,22 +33,40 @@ const OffersCards = () => {
 		fetchOffers()
 	}, [])
 	return (
-		<div>
-			{offers.map(
-				({
-					id,
-					subHeader,
-					header,
-					stars,
-					actualPrice,
-					lastPrice,
-					image,
-				}) => (<OfferCard id={id} subHeader={subHeader} header={header}
-					stars={stars}
-					actualPrice={actualPrice}
-					lastPrice={lastPrice}
-					image={image} />))}
-		</div>
+		<OffersContainer>
+			<GridContainer container>
+				{offers?.length > 0 ? (
+					<Grid
+						container
+						rowSpacing={3}
+						columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+					>
+						{offers.map(
+							({
+								id,
+								subHeader,
+								header,
+								stars,
+								actualPrice,
+								lastPrice,
+								image,
+							}) => (
+								<OfferCard id={id} subHeader={subHeader} header={header}
+									stars={stars}
+									actualPrice={actualPrice}
+									lastPrice={lastPrice}
+									image={image} />
+							)
+						)}
+					</Grid>
+				) : (
+					<Box>
+						<p>Loading...</p>
+					</Box>
+				)
+				}
+			</GridContainer >
+		</OffersContainer >
 	)
 }
 
