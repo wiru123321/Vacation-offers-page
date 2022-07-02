@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Box from '@mui/material/Box'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export const CardContentContainer = styled.div`
 	text-align: left;
@@ -40,7 +41,7 @@ export const LastPriceText = styled.a`
 	text-decoration-color: black;
 `
 
-export const ImgContaner = styled.img`
+export const ImgContaner = styled(LazyLoadImage)`
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 	width: 100%;

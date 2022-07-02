@@ -7,6 +7,7 @@ import {
 	CardContentContainer, SubHeader, Header, ActualPriceText,
 	Dot, LastPriceText, ImgContaner, RatingContainer
 } from './styles';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const OfferCard = (props: OffersTypes) => {
 	const { id, actualPrice, header, image, lastPrice, stars, subHeader } = props;
@@ -15,6 +16,7 @@ const OfferCard = (props: OffersTypes) => {
 			<Box>
 				<ImgContaner
 					src={image}
+					effect="blur"
 					alt="vacation"
 				/>
 				<CardContentContainer>

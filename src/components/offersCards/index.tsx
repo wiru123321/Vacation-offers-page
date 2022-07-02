@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import OfferCard from './offerCard';
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
+import CircularProgress from '@mui/material/CircularProgress';
 import { OffersContainer, GridContainer } from './styles';
 
 export type OffersTypes = {
@@ -61,7 +62,7 @@ const OffersCards = () => {
 					</Grid>
 				) : (
 					<Box>
-						<p>Loading...</p>
+						<CircularProgress />
 					</Box>
 				)
 				}
