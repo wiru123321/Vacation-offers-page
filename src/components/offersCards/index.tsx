@@ -1,8 +1,9 @@
 import React from 'react';
+import OfferCard from './offerCard';
 
 const OffersCards = () => {
 	return (
-		<div>OffersCards</div>
+		<div><OfferCard /></div>
 	)
 }
 
