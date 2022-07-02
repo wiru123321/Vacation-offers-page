@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import OfferCard from './offerCard';
 
-type OffersTypes = {
+export type OffersTypes = {
 	id: number
 	subHeader: string
 	header: string
@@ -21,7 +21,6 @@ const OffersCards = () => {
 			})
 			const json = await res.json()
 			setOffers(json.offers)
-			console.log(json.offers)
 		} catch (err) {
 			console.log(err)
 		}
@@ -31,7 +30,22 @@ const OffersCards = () => {
 		fetchOffers()
 	}, [])
 	return (
-		<div><OfferCard /></div>
+		<div>
+			{offers.map(
+				({
+					id,
+					subHeader,
+					header,
+					stars,
+					actualPrice,
+					lastPrice,
+					image,
+				}) => (<OfferCard id={id} subHeader={subHeader} header={header}
+					stars={stars}
+					actualPrice={actualPrice}
+					lastPrice={lastPrice}
+					image={image} />))}
+		</div>
 	)
 }
 
